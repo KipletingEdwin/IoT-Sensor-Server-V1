@@ -27,26 +27,42 @@ $airport_fleet = Concurrent::Hash.new
 
 FLEET_SCHEMA = {
     "BHS_CONV_T1_A"  => { type: "Baggage Handling System",        name: "Conveyor Belt Main Line A", base_vib: 1.5, base_curr: 4.0 },
-    "PBB_GATE_A12"   => { type: "Passenger Boarding Bridge",      name: "Gate A12 Docking Bridge",  base_vib: 2.2, base_curr: 6.5 },
-    "ESC_ARR_04"     => { type: "Escalator & Elevator",           name: "Arrivals Main Escalator 01",base_vib: 1.1, base_curr: 3.8 },
-    "AGL_RUNWAY_02R" => { type: "Airfield Ground Lighting",       name: "Runway 27L Touchdown Loop", base_vib: 0.2, base_curr: 12.0 },
+    "PBB_GATE_A12"   => { type: "Passenger Boarding Bridge",      name: "Gate A12 Docking Bridge",  base_vib: 2.2, base_curr: 6.4 },
+    "ESC_ARR_04"     => { type: "Escalator & Elevator",           name: "Arrivals Main Escalator 01",base_vib: 1.4, base_curr: 3.9 },
+    "AGL_RUNWAY_02R" => { type: "Airfield Ground Lighting",       name: "Runway 27L Touchdown Loop", base_vib: 0.3, base_curr: 12.0 },
     "PCA_GATE_A01"   => { type: "Pre-Conditioned Air Unit",       name: "Stand A01 Climate Pod",     base_vib: 1.8, base_curr: 8.2 },
-    "EGATE_ARR_14"   => { type: "Automated Passport Gate",        name: "Border Control E-Gate 14",  base_vib: 0.4, base_curr: 2.1 },
+    "EGATE_ARR_14"   => { type: "Automated Passport Gate",        name: "Border Control E-Gate 14",  base_vib: 0.3, base_curr: 2.0 },
 
     "BHS_CONV_T1_A"  => { type: "Baggage Handling System",        name: "Conveyor Belt Main Line B", base_vib: 1.5, base_curr: 4.0 },
-    "PBB_GATE_B05"   => { type: "Passenger Boarding Bridge",      name: "Gate B01 Docking Bridge",  base_vib: 2.2, base_curr: 6.5 },
+    "PBB_GATE_B05"   => { type: "Passenger Boarding Bridge",      name: "Gate B01 Docking Bridge",  base_vib: 2.5, base_curr: 6.5 },
     "ESC_ARR_01"     => { type: "Escalator & Elevator",           name: "Arrivals Main Escalator 03",base_vib: 1.1, base_curr: 3.8 },
     "AGL_RUNWAY_05R" => { type: "Airfield Ground Lighting",       name: "Runway 27R Touchdown Loop", base_vib: 0.2, base_curr: 12.0 },
     "PCA_GATE_C10"   => { type: "Pre-Conditioned Air Unit",       name: "Stand C10 Climate Pod",     base_vib: 1.8, base_curr: 8.2 },
     "EGATE_ARR_14"   => { type: "Automated Passport Gate",        name: "Passport_Gate_B3",  base_vib: 0.4, base_curr: 2.1 },
 
     "BHS_CONV_T1_A"  => { type: "Baggage Handling System",        name: "Conveyor Belt Main Line C", base_vib: 1.5, base_curr: 4.0 },
-    "PBB_GATE_C10"   => { type: "Passenger Boarding Bridge",      name: "Gate C10 Docking Bridge",  base_vib: 2.2, base_curr: 6.5 },
-    "ESC_ARR_06"     => { type: "Escalator & Elevator",           name: "Arrivals Main Escalator 04",base_vib: 1.1, base_curr: 3.8 },
-    "AGL_RUNWAY_10R" => { type: "Airfield Ground Lighting",       name: "Runway 24L Touchdown Loop", base_vib: 0.2, base_curr: 12.0 },
+    "PBB_GATE_C10"   => { type: "Passenger Boarding Bridge",      name: "Gate C10 Docking Bridge",  base_vib: 2.0, base_curr: 6.6 },
+    "ESC_ARR_06"     => { type: "Escalator & Elevator",           name: "Arrivals Main Escalator 04",base_vib: 1.3, base_curr: 3.7 },
+    "AGL_RUNWAY_10R" => { type: "Airfield Ground Lighting",       name: "Runway 24L Touchdown Loop", base_vib: 0.4, base_curr: 12.0 },
     "PCA_GATE_B02"   => { type: "Pre-Conditioned Air Unit",       name: "Stand B02 Climate Pod",     base_vib: 1.8, base_curr: 8.2 },
-    "EGATE_ARR_14"   => { type: "Automated Passport Gate",        name: "Passport_Gate_A5",  base_vib: 0.4, base_curr: 2.1 }
+    "EGATE_ARR_14"   => { type: "Automated Passport Gate",        name: "Passport_Gate_A5",  base_vib: 0.6, base_curr: 2.2 }
   }.freeze
+
+  # Production-ready Python schema mapping only critical BHS assets
+# BHS_FLEET_SCHEMA = {
+#     # TERMINAL 1 ASSETS
+#     "BHS_T1_CHECKIN_01": { "subsystem": "Check-in Feeder Conveyor","location": "Terminal 1 Departure Hall","base_vib": 1.2, "base_temp": 35.0, "base_curr": 3.5 },
+#     "BHS_T1_MAIN_LINE_A": { "subsystem": "Main Collector Belt","location": "Terminal 1 Baggage Hall","base_vib": 1.6, "base_temp": 45.0, "base_curr": 7.5 },
+#     "BHS_T1_MERGE_01": {"subsystem": "High-Speed Merge Conveyor","location": "Terminal 1 Sortation Area","base_vib": 2.2, "base_temp": 50.0, "base_curr": 9.0 },
+#     "BHS_T1_CAROUSEL_01": {"subsystem": "Arrival Reclaim Carousel","location": "Terminal 1 Arrivals Hall","base_vib": 1.4, "base_temp": 40.0, "base_curr": 6.0 },
+
+#     # TERMINAL 2 ASSETS
+#     "BHS_T2_CHECKIN_01": {"subsystem": "Check-in Feeder Conveyor","location": "Terminal 2 Departure Hall","base_vib": 1.1, "base_temp": 34.0,"base_curr": 3.4},
+#     "BHS_T2_MAIN_LINE_B": {"subsystem": "Main Collector Belt","location": "Terminal 2 Baggage Hall","base_vib": 1.5,"base_temp": 44.0,"base_curr": 7.2},
+#     "BHS_T2_MERGE_02": {"subsystem": "High-Speed Merge Conveyor","location": "Terminal 2 Sortation Area","base_vib": 2.1,"base_temp": 52.0,"base_curr": 9.5},
+#     "BHS_T2_CAROUSEL_02": {"subsystem": "Arrival Reclaim Carousel","location": "Terminal 2 Arrivals Hall","base_vib": 1.3,"base_temp": 39.0, "base_curr": 5.8}
+# }
+
 
 # Seed randomized operational ages and wear rates to create unique decay timelines
 FLEET_SCHEMA.each do |asset_id, meta|
