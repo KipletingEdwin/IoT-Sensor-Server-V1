@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   mount ActionCable.server => "/cable"
 
-  get 'download_csv', to: 'application#download_csv'
+  get 'download_csv', to: 'telemetry#download_csv'
 
   # Defines the root path route ("/")
   # root "posts#index"
