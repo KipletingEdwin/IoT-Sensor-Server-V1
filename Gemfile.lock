@@ -342,6 +342,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   bundler-audit
+  concurrent-ruby
   csv
   debug
   image_processing (~> 1.2)
